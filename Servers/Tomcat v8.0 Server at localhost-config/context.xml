@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
+  <Resource auth="Container" defaultAutoCommit="false" defaultTransactionIsolation="READ_COMMITTED" driverClassName="oracle.jdbc.driver.OracleDriver" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" jdbcInterceptors="StatementFinalizer; ResetAbandonedTimer" logAbandoned="true" maxActive="20" maxIdle="4" minIdle="2" name="jdbc/tec" password="teste" removeAbandoned="true" removeAbandonedTimeout="1200" rollbackOnReturn="true" suspectTimeout="1200" testOnBorrow="true" type="javax.sql.DataSource" url="jdbc:oracle:thin:@aws-db1a:1521:db1a" username="pedreira" validationQuery="select 1 from dual"/>
+
+  <Resource auth="Container" defaultAutoCommit="false" defaultTransactionIsolation="READ_COMMITTED" driverClassName="oracle.jdbc.driver.OracleDriver" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" logAbandoned="true" maxActive="20" maxIdle="4" minIdle="2" name="jdbc/tec-resumo" password="teste" readOnly="true" removeAbandoned="true" removeAbandonedTimeout="1200" rollbackOnReturn="true" testOnBorrow="true" type="javax.sql.DataSource" url="jdbc:oracle:thin:@aws-db1a:1521:db1a" username="pedreira" validationQuery="select 1 from dual"/>
+
+  <Resource auth="Container" defaultAutoCommit="false" defaultTransactionIsolation="READ_COMMITTED" driverClassName="oracle.jdbc.driver.OracleDriver" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory" jdbcInterceptors="org.apache.tomcat.jdbc.pool.interceptor.StatementFinalizer" logAbandoned="true" maxActive="20" maxIdle="4" minIdle="2" name="jdbc/tec-greenplum" password="teste" readOnly="true" removeAbandoned="true" removeAbandonedTimeout="1200" rollbackOnReturn="true" testOnBorrow="true" type="javax.sql.DataSource" url="jdbc:oracle:thin:@aws-db1a:1521:db1a" username="pedreira" validationQuery="select 1 from dual"/>
+
+  <Parameter name="contextConfigLocation" override="false" value="classpath*:/applicationContext-resources.xml     classpath*:/applicationContext-mongodb.xml     classpath*:/applicationContext-data.xml     classpath*:/applicationContext-security.xml     classpath*:/applicationContext-service.xml     classpath*:/applicationContext-cache.xml     classpath*:/applicationContext-config.xml"/>
+</Context>
