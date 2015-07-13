@@ -17,15 +17,11 @@
 	    <version>4.12</version>
 	</dependency>
 	<dependency>
-	    <groupId>org.apache.tomcat</groupId>
-	    <artifactId>tomcat</artifactId>
-	    <version>8.0.0</version>
-	</dependency>
-	<dependency>
-	    <groupId>spring</groupId>
+	    <groupId>org.springframework</groupId>
 	    <artifactId>spring-webmvc</artifactId>
-	    <version>1.0.2</version>
+	    <version>4.1.7.RELEASE</version>
 	</dependency>
+	
 	<dependency>
 	  <groupId>javax.servlet</groupId>
 	  <artifactId>javax.servlet-api</artifactId>
