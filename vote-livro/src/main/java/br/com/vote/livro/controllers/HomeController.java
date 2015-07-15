@@ -9,13 +9,8 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String index(){
-		
-		return "hello";
-	}
-	
-	@RequestMapping
-	public String listarLivros(){
-		return "livros.index";
+
+		return "index.jsp";
 	}
 	
 }

@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Olá Espiríto Santo</title>
+<title>Formulario - Ex</title>
 </head>
 <body>
-<h1>Seja bem vindo nesse projeto</h1>
+	<form action="livro/salvar" method="post">
+		<label for="nome"> Nome </label>
+		<input type="text" name="nome" id="nome"/>
+		
+		<input type="submit" value="Enviar"/>
+	</form>
 </body>
 </html>

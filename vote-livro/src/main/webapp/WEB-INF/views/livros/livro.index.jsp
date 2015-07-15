@@ -4,14 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Formulario - Ex</title>
+<title>Insert title here</title>
 </head>
 <body>
-	<form action="vote-livro/livros" method="post">
-		<label for="nome"> Nome </label>
-		<input type="text" name="nome" id="nome"/>
-		
-		<input type="submit" value="Enviar"/>
-	</form>
+<h1>livros</h1>
 </body>
 </html>
