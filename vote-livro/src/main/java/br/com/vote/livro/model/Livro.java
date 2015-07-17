@@ -10,8 +10,17 @@ public class Livro {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private int livroKey;
 	private String nome;
+	private String imagem;
+	
+	public Livro(int livroKey) {
+		this.livroKey = livroKey;
+	}
+
+	public int getLivroKey() {
+		return livroKey;
+	}
 
 	public String getNome() {
 		return nome;
@@ -21,11 +30,13 @@ public class Livro {
 		this.nome = nome;
 	}
 
-	public int getId() {
-		return id;
+	public String getImagem() {
+		return imagem;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
 	}
+ 
+
 }

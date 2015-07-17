@@ -1,5 +1,7 @@
 package br.com.vote.livro.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.springframework.stereotype.Repository;
@@ -15,8 +17,8 @@ public class LivroDao {
 		manager.persist(livro);
 	}
 	
-	public void adiciona(Livro livro) {
-		
+	public List<Livro> listarLivros() {
+		return null;
 	}
 	
 	
