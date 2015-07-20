@@ -18,5 +18,9 @@ public class LivroService {
 		return livroDao.listarLivros();
 	}
 
+	public Livro obterLivro(int livroKey) {
+		return livroDao.obterLivro(livroKey);
+	}
+
 	
 }

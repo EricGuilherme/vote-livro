@@ -20,6 +20,10 @@ public class LivroDao {
 	public List<Livro> listarLivros() {
 		return null;
 	}
+
+	public Livro obterLivro(int livroKey) {
+		return null;
+	}
 	
 	
 
