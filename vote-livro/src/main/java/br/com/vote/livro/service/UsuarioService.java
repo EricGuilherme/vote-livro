@@ -7,7 +7,6 @@ import br.com.vote.livro.model.Usuario;
 
 public class UsuarioService {
 
-	@Autowired
 	UsuarioDao usuarioDao;
 	
 	public Usuario salvar(String nome, String email) {

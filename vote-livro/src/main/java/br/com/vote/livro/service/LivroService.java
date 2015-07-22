@@ -11,7 +11,6 @@ import br.com.vote.livro.model.Livro;
 @Service
 public class LivroService {
 	
-	@Autowired
 	LivroDao livroDao;
 
 	public List<Livro> listarLivros() {
