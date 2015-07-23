@@ -22,7 +22,7 @@ public class JPAConfiguration {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory(){
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
-		em.setPackagesToScan(new String[]{"br.com.eric.vote.livro.model"});
+		em.setPackagesToScan(new String[]{"br.com.vote.livro.model"});
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);
 		em.setJpaProperties(additionalProperties());
@@ -35,7 +35,7 @@ public class JPAConfiguration {
 	public DataSource dataSource(){
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:8080/vote-livro");
+		dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/vote-livro");
 		dataSource.setUsername("root");
 		dataSource.setPassword("");
 		

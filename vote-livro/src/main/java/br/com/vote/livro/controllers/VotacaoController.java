@@ -16,7 +16,7 @@ import br.com.vote.livro.service.LivroService;
 public class VotacaoController {
 	
 	@Autowired
-	LivroService livroService;
+	private LivroService livroService;
 	
 	public List<Livro> listarLivros(){
 		return livroService.listarLivros();
