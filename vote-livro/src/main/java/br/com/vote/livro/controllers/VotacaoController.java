@@ -21,23 +21,23 @@ public class VotacaoController {
 	public List<Livro> listarLivros(){
 		return livroService.listarLivros();
 	}
-	
-	@RequestMapping
-	public void votacao(int livroKey, int voto){
-		Livro livro = livroService.obterLivro(livroKey);
-		setVotacao(livro, voto);
-	}
-	
-	@RequestMapping
-	public void setVotacao(Livro livro, int voto){
-		Map<Livro, Integer> votacoes = new HashMap<Livro, Integer>();
-		votacoes.put(livro, voto);
-	}
-	
-	@RequestMapping
-	@ResponseBody
-	public String rackingUsuario(){
-		
-		return "rackingUsuario.jsp";
-	}
+//	
+//	@RequestMapping
+//	public void votacao(int livroKey, int voto){
+//		Livro livro = livroService.obterLivro(livroKey);
+//		setVotacao(livro, voto);
+//	}
+//	
+//	@RequestMapping
+//	public void setVotacao(Livro livro, int voto){
+//		Map<Livro, Integer> votacoes = new HashMap<Livro, Integer>();
+//		votacoes.put(livro, voto);
+//	}
+//	
+//	@RequestMapping
+//	@ResponseBody
+//	public String rackingUsuario(){
+//		
+//		return "rackingUsuario.jsp";
+//	}
 }
