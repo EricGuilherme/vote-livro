@@ -13,15 +13,7 @@ import br.com.vote.livro.service.UsuarioService;
 @Controller
 public class UsuarioController {
 	
-	@Autowired
-	UsuarioService usuarioService;
+
 	
-	@RequestMapping
-	@ResponseBody
-	public String salvar(String nome, String email){
-//		Usuario usuario = usuarioService.salvar(nome, email);
-//		return "Obrigado " + usuario.getNome() + " !";
-		return null;
-	}
 	
 }
