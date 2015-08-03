@@ -7,6 +7,10 @@ public class Votacao {
 	private Livro livro;
 	private int voto;
 	
+	public Votacao(int votacaoKey) {
+		this.votacaoKey = votacaoKey;
+	}
+	
 	public Livro getLivro() {
 		return livro;
 	}

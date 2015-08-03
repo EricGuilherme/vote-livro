@@ -11,6 +11,9 @@ public class Livro {
 		this.livroKey = livroKey;
 	}
 
+	public Livro() {
+	}
+
 	public int getLivroKey() {
 		return livroKey;
 	}

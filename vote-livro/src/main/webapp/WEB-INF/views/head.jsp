@@ -17,13 +17,13 @@
 	
 	function votacao() {
 		voto++;
-		computarVoto();
+		computaVoto();
 		if (voto == 5) {
 			//abrir usuario.index.jsp
 		}
 	}
 
-	function computarVoto() {
+	function computaVoto() {
 			var $livroKey = $('livroKey');
 		$.ajax({
 			url : "http://127.0.0.1:8080/vote-livro/votacao/computaVoto.action?livroKey=" + $livroKey + "&voto=" + 1,
