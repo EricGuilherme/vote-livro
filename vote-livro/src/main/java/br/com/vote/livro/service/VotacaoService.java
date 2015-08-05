@@ -19,8 +19,8 @@ public class VotacaoService {
 		votacaoDao.incluirVoto(livroKey, voto);
 	}
 
-	public void salvaVotacao(Votacao votacao) {
-		votacaoDao.salvaVotacao(votacao);
+	public void atualiza(Votacao votacao) {
+		votacaoDao.atualiza(votacao);
 	}
 
 	

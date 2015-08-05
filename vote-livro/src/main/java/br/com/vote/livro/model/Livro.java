@@ -1,8 +1,12 @@
 package br.com.vote.livro.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
 public class Livro {
 	
+	@Id
 	private int livroKey;
 	private String nome;
 	private String imagem;

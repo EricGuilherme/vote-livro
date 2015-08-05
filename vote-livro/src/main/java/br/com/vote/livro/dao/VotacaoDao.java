@@ -8,8 +8,7 @@ public class VotacaoDao {
 
 	}
 
-	public void salvaVotacao(Votacao votacao) {
-
+	public void atualiza(Votacao votacao) {
 		
 	}
 

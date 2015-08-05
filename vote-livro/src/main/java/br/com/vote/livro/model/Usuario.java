@@ -1,13 +1,17 @@
 package br.com.vote.livro.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Transient;
 
+@Entity
 public class Usuario {
 	
+	@Id
 	private int usuarioKey;
 	private String nome;
 	private String email;
-	@Transient
+	private String senha;
 	private Votacao votacaoKey;
 	
 	public int getUsuarioKey() {
@@ -32,6 +36,22 @@ public class Usuario {
 	
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Votacao getVotacaoKey() {
+		return votacaoKey;
+	}
+
+	public void setVotacaoKey(Votacao votacaoKey) {
+		this.votacaoKey = votacaoKey;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
 }

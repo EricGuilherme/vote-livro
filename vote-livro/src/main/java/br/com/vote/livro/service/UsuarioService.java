@@ -1,5 +1,7 @@
 package br.com.vote.livro.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +14,23 @@ public class UsuarioService {
 	@Autowired
 	UsuarioDao usuarioDao;
 	
-	public Usuario salvar(String nome, String email) {
-		return usuarioDao.salvar(nome, email); 
+	public void setUsuarioDao(UsuarioDao usuarioDao) {
+		this.usuarioDao = usuarioDao;
+	}
+	
+	public Usuario salvar(Usuario usuario) {
+		return usuarioDao.salvar(usuario); 
 	}
 
+	public List<Usuario> listarVotacao(Usuario usuario) {
+		return usuarioDao.listarVotacao(usuario);
+	}
+
+	public String validaLogin(String email, String senha) throws Exception {
+		try {
+			return "";
+		} catch (Exception e) {
+			return e.getMessage();
+		}
+	}
 }
