@@ -1,3 +1,4 @@
+package br.com.vote.livro.test;
 import static org.mockito.Mockito.doReturn;
 import static org.mockito.Mockito.verify;
 
@@ -35,7 +36,7 @@ public class UsuarioServiceTest {
 
 	@Test
 	public void deveSalvarUsuario(){
-		Usuario usuario = criaUsuario(1);
+		Usuario usuario = new Usuario(1);
 		
 		doReturn(usuario).when(usuarioDao).salvar(usuario);
 		usuarioService.salvar(usuario);
@@ -46,7 +47,7 @@ public class UsuarioServiceTest {
 	
 	@Test
 	public void deveListarVotacaoDeUmDeterminadoUsuario(){
-		Usuario usuario = criaUsuario(2);
+		Usuario usuario = new Usuario(1);
 		
 		List<Usuario> usuarios = usuarioService.listarVotacao(usuario);
 		doReturn(usuarios).when(usuarioDao).listarVotacao(usuario);
@@ -57,22 +58,11 @@ public class UsuarioServiceTest {
 	
 	@Test
 	public void deveValidarLogin() throws Exception{
-		Usuario usuario = criaUsuario(3);
+		Usuario usuario = new Usuario(1);
 		
 		exception.expect(Exception.class);
 		exception.expectMessage("Login or Password invalid, try again!");
 		usuarioService.validaLogin(usuario.getEmail(), usuario.getSenha());
 	}
 	
-	public Usuario criaUsuario(int usuarioKey){
-		Usuario usuario = new Usuario();
-		Votacao votacao = new Votacao(123);
-		usuario.setUsuarioKey(usuarioKey);
-		usuario.setNome("Eric Guilherme");
-		usuario.setEmail("guilherme@gmail.com");
-		usuario.setVotacaoKey(votacao);
-		
-		return usuario;
-		
-	}
 }

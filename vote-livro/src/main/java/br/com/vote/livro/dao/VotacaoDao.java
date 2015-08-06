@@ -1,15 +1,15 @@
 package br.com.vote.livro.dao;
 
+import java.util.List;
+
 import br.com.vote.livro.model.Votacao;
 
 public class VotacaoDao {
 
-	public void incluirVoto(int livroKey, int voto) {
-
+	public List<Votacao> listarVotacao() {
+		return null;
 	}
 
-	public void atualiza(Votacao votacao) {
-		
-	}
+
 
 }

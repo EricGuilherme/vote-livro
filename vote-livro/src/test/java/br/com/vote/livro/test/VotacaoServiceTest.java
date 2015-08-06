@@ -1,13 +1,19 @@
 package br.com.vote.livro.test;
 
+
 import org.junit.Before;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.*;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
+
+import java.util.List;
+
 import br.com.vote.livro.dao.VotacaoDao;
 import br.com.vote.livro.model.Livro;
 import br.com.vote.livro.model.Votacao;
@@ -26,40 +32,13 @@ public class VotacaoServiceTest {
 		votacaoService = new VotacaoService();
 		votacaoService.setVotacaoDao(votacaoDao);
 	}
-	
-	@Test
-	public void deveComputarVoto(){
-		Livro livro = new Livro(123);
-		Votacao votacao = new Votacao(1);
-		votacao.setLivro(livro);
-				
-		for (int voto = 0; voto <= 5; voto++) {
-			votacaoService.incluirVoto(livro.getLivroKey(), 1);
-			votacao.setVoto(voto);;
-		}
-		
-		votacaoService.atualiza(votacao);
-		
-		assertEquals(1, votacao.getVotacaoKey());
-		assertEquals(livro, votacao.getLivro());
-		assertEquals(5, votacao.getVoto());
-	}
-	
-	@Test
-	public void deveAtualizarVotacao(){
-		Livro livro = new Livro(123);
-		Votacao votacao = new Votacao(1);
-		votacao.setLivro(livro);
-		votacao.setVoto(1);
 
-		votacaoService.atualiza(votacao);
-		
-		assertEquals(1, votacao.getVoto());
-	}
-	
 	@Test
 	public void deveListarVotacoesExistentes(){
+		List<Votacao> votacoes = votacaoService.listarVotacao();
 		
+		doReturn(votacoes).when(votacaoDao).listarVotacao();
+		verify(votacaoDao).listarVotacao();
 	}
 	
 	
