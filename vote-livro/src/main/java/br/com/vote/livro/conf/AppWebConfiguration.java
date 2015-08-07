@@ -7,10 +7,11 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import br.com.vote.livro.controller.HomeController;
 import br.com.vote.livro.dao.UsuarioDao;
+import br.com.vote.livro.model.Livro;
 import br.com.vote.livro.service.LivroService;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses={HomeController.class, LivroService.class, UsuarioDao.class})
+@ComponentScan(basePackageClasses={HomeController.class, LivroService.class, UsuarioDao.class, Livro.class})
 public class AppWebConfiguration {
 	
 	@Bean

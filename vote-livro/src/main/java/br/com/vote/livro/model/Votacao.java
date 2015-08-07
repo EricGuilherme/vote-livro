@@ -1,11 +1,13 @@
 package br.com.vote.livro.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Votacao {
@@ -13,21 +15,15 @@ public class Votacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int votacaoKey;
-	@ManyToMany
+	@OneToMany(cascade=CascadeType.ALL)
 	@JoinColumn(name = "livro_key")
-	private Livro livro;
+	private Livro livroKey;
 	private int voto;
 	
 	public Votacao(int votacaoKey) {
 		this.votacaoKey = votacaoKey;
 	}
 	
-	public Livro getLivro() {
-		return livro;
-	}
-	public void setLivro(Livro livro) {
-		this.livro = livro;
-	}
 	public int getVoto() {
 		return voto;
 	}
@@ -39,6 +35,14 @@ public class Votacao {
 	}
 	public void setVotacaoKey(int votacaoKey) {
 		this.votacaoKey = votacaoKey;
+	}
+
+	public Livro getLivroKey() {
+		return livroKey;
+	}
+
+	public void setLivroKey(Livro livroKey) {
+		this.livroKey = livroKey;
 	}
 	
 }
