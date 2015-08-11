@@ -26,7 +26,7 @@
 	function computaVoto() {
 			var $livroKey = $('livroKey');
 		$.ajax({
-			url : "http://127.0.0.1:8080/vote-livro/votacao/computaVoto.action?livroKey=" + $livroKey + "&voto=" + 1,
+			url : "http://127.0.0.1:8080/vote-livro/livro/computaVoto.action?livroKey=" + $livroKey + "&voto=" + 1,
 			type : "POST",
 			success : function() {
 				console.log("sucesso");
