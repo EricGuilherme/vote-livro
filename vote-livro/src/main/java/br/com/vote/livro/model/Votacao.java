@@ -1,5 +1,6 @@
 package br.com.vote.livro.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,6 +13,7 @@ public class Votacao {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="votacao_key")
 	private int votacaoKey;
 	@OneToOne
 	@JoinColumn(name = "livro_key")
@@ -20,6 +22,10 @@ public class Votacao {
 	
 	public Votacao(int votacaoKey) {
 		this.votacaoKey = votacaoKey;
+	}
+	
+	public Votacao(){
+		
 	}
 	
 	public int getVoto() {

@@ -31,11 +31,13 @@ public class LivroDao {
 	}
 
 	public Livro obterLivro(int livroKey) {
-		return manager.createQuery("select l from Livro l where l.livroKey = :livroKey", Livro.class).setParameter("livroKey", livroKey).getSingleResult();
-	}
-
-	public void atualizaVoto(Livro livro) {
-		manager.createQuery("update Livro set ").executeUpdate();
+		
+		List<Livro> livros = null;
+		String jpql = "select l from Livro l where l.livroKey = :livroKey";
+		livros = manager.createQuery(jpql, Livro.class)
+				.setParameter("livroKey", livroKey).getResultList();
+		
+		return livros.get(0);
 	}
 
 	public void atualizaUsuario(Usuario usuario) {

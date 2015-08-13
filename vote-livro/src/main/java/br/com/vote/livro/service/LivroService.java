@@ -31,7 +31,8 @@ public class LivroService {
 	}
 
 	public void atualizaVoto(Livro livro) {
-		livroDao.atualizaVoto(livro);
+		int novaVoto = livro.getVoto() + 1;
+		livro.setVoto(novaVoto);
 	}
 
 	public void atualizaUsuario(Usuario usuario) {

@@ -1,5 +1,6 @@
 package br.com.vote.livro.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,6 +12,7 @@ public class Livro {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="livro_key")
 	private int livroKey;
 	private String nome;
 	private String imagem;

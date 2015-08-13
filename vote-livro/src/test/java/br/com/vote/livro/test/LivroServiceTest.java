@@ -67,9 +67,30 @@ public class LivroServiceTest {
 		Livro livro = new Livro(123);
 		
 		doReturn(livro).when(livroDao).obterLivro(123);
+		
+		livroService.atualizaVoto(livro);
 		livroService.atualizaVoto(livro);
 		
-		verify(livroDao).atualizaVoto(livro);
+		assertEquals(livro.getVoto(), 1);
+	}
+	
+	@Test
+	public void deveAtualizarVotoEmLivrosDiferentesEQtdVotosIgualA5(){
+		Livro livro1 = new Livro(123);
+		Livro livro2 = new Livro(456);
+		
+		doReturn(livro1).when(livroDao).obterLivro(123);
+		doReturn(livro2).when(livroDao).obterLivro(456);
+		
+		livroService.atualizaVoto(livro1);
+		livroService.atualizaVoto(livro1);
+		livroService.atualizaVoto(livro2);
+		livroService.atualizaVoto(livro2);
+		livroService.atualizaVoto(livro2);
+		
+		assertEquals(livro1.getVoto(), 2);
+		assertEquals(livro2.getVoto(), 3);
+		assertEquals(5, livro1.getVoto() + livro2.getVoto());
 	}
 	
 	@Test
