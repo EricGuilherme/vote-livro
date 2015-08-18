@@ -48,13 +48,16 @@ public class VotacaoServiceTest {
 	@Test
 	public void deveAtualizarVoto(){
 		Livro livro = new Livro(123);
+		Votacao votacao = new Votacao(432);
 		
 		doReturn(livro).when(livroDao).obterLivro(123);
+		doReturn(votacao).when(votacaoDao).obterVotacao(livro);
 		
 		votacaoService.atualizaVotacao(123);
 		
 		verify(livroDao).obterLivro(123);
-		verify(votacaoDao).atualizaVotacao(livro);
+		verify(votacaoDao).obterVotacao(livro);
+		verify(votacaoDao).atualizaVotacao(votacao);
 		
 	}
 	

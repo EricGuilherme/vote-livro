@@ -71,7 +71,7 @@ public class LivroServiceTest {
 		livroService.atualizaVoto(livro);
 		livroService.atualizaVoto(livro);
 		
-		assertEquals(livro.getVoto(), 1);
+		assertEquals(livro.getVoto(), 2);
 	}
 	
 	@Test

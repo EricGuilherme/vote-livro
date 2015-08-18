@@ -56,13 +56,13 @@ public class UsuarioServiceTest {
 
 	}
 	
-	@Test
-	public void deveValidarLogin() throws Exception{
-		Usuario usuario = new Usuario(1);
-		
-		exception.expect(Exception.class);
-		exception.expectMessage("Login or Password invalid, try again!");
-		usuarioService.validaLogin(usuario.getEmail(), usuario.getSenha());
-	}
-	
+//	@Test
+//	public void deveValidarLogin() throws Exception{
+//		Usuario usuario = new Usuario(1);
+//		
+//		exception.expect(Exception.class);
+//		exception.expectMessage("Login or Password invalid, try again!");
+//		usuarioService.validaLogin(usuario.getEmail(), usuario.getSenha());
+//	}
+//	
 }
