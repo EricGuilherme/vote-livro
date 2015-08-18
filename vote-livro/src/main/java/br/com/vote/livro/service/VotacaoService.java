@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.vote.livro.dao.LivroDao;
 import br.com.vote.livro.dao.VotacaoDao;
@@ -35,6 +36,7 @@ public class VotacaoService {
 		return votacaoDao.obterVotacao(livro);
 	}
 
+	@Transactional
 	public void atualizaVotacao(int livroKey) {
 		Livro livro = livroDao.obterLivro(livroKey);
 		Votacao votacao = obterVotacao(livro);

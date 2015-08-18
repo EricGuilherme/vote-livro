@@ -5,13 +5,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-import br.com.vote.livro.controller.HomeController;
-import br.com.vote.livro.dao.UsuarioDao;
+import br.com.vote.livro.controller.LivroController;
+import br.com.vote.livro.dao.LivroDao;
 import br.com.vote.livro.model.Livro;
 import br.com.vote.livro.service.LivroService;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses={HomeController.class, LivroService.class, UsuarioDao.class, Livro.class})
+@ComponentScan(basePackageClasses={LivroController.class, LivroService.class, LivroDao.class, Livro.class})
 public class AppWebConfiguration {
 	
 	@Bean

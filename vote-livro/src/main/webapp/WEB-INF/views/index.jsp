@@ -1,5 +1,5 @@
-<jsp:include page="head.jsp"></jsp:include>
 <body>
+<jsp:include page="head.jsp"></jsp:include>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-12">
@@ -7,9 +7,12 @@
 				<div class="col-md-4">
 					<h3 class="text-primary text-center">make your choose</h3>
 					<div class="row">
-						<div class="col-md-4">
-							<img onclick="votacao()" src="http://lorempixel.com/140/140/" class="img-circle" />
-						</div>
+						<c:forEach items ="${livros}" var="livro">
+							<p>${livro}</p>
+							<div class="col-md-4">
+								<img onclick="votacao()" src="http://lorempixel.com/140/140/" class="img-circle" id="${livro.livroKey}"/>
+							</div>
+						</c:forEach>
 					<div class="col-md-4">
 						<div class="page-header">
 							<h1>
@@ -18,7 +21,7 @@
 						</div>				
 					</div>
 					<div class="col-md-4">
-						<img onclick="votacao()" src="http://lorempixel.com/140/140/" class="img-circle" />
+						<img onclick="votacao()" src="http://lorempixel.com/140/140/" class="img-circle" id="${livro.livroKey}"/>
 					</div>
 				</div>
 			</div>

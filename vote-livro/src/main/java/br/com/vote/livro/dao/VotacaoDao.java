@@ -21,17 +21,12 @@ public class VotacaoDao {
 	}
 
 	public void atualizaVotacao(Votacao votacao) {
-		try{
-			manager.merge(Votacao.class);
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
+		manager.merge(votacao);
 	}
 
 	public Votacao obterVotacao(Livro livro) {
 		int livroKey = livro.getLivroKey();
-		String jpql = "select v from Votacao v where v.livroKey.livroKey = :livroKey";
+		String jpql = "select v from Votacao v where v.livro.livroKey = :livroKey";
 		List<Votacao> votacoes = manager.createQuery(jpql, Votacao.class)
 				.setParameter("livroKey", livroKey).getResultList();
 		

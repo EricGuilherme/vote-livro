@@ -27,7 +27,8 @@ public class LivroDao {
 	}
 
 	public List<Livro> listarLivros() {
-		return null;
+		String jpql = "select l from Livro l";
+		return manager.createQuery(jpql, Livro.class).getResultList();
 	}
 
 	public Livro obterLivro(int livroKey) {

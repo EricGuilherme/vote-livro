@@ -17,16 +17,14 @@ public class Votacao {
 	private int votacaoKey;
 	@OneToOne
 	@JoinColumn(name = "livro_key")
-	private Livro livroKey;
+	private Livro livro;
 	private int voto;
 	
 	public Votacao(int votacaoKey) {
 		this.votacaoKey = votacaoKey;
 	}
 	
-	public Votacao(){
-		
-	}
+	public Votacao(){}
 	
 	public int getVoto() {
 		return voto;
@@ -41,12 +39,13 @@ public class Votacao {
 		this.votacaoKey = votacaoKey;
 	}
 
-	public Livro getLivroKey() {
-		return livroKey;
+	public Livro getLivro() {
+		return livro;
 	}
 
-	public void setLivroKey(Livro livroKey) {
-		this.livroKey = livroKey;
+	public void setLivro(Livro livro) {
+		this.livro = livro;
 	}
+
 	
 }

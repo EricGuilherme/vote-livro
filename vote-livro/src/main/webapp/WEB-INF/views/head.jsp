@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 	<title>Vote no Livro</title>
@@ -24,9 +25,9 @@
 	}
 
 	function computaVoto() {
-			var $livroKey = $('livroKey');
+			var $livroKey = 1;
 		$.ajax({
-			url : "http://127.0.0.1:8080/vote-livro/livro/computaVoto.action?livroKey=" + $livroKey + "&voto=" + 1,
+			url : "http://127.0.0.1:8080/vote-livro/livro/atualizaVoto.action?livroKey=" + $livroKey,
 			type : "POST",
 			success : function() {
 				console.log("sucesso");
