@@ -1,4 +1,4 @@
-<jsp:include page="head.jsp"></jsp:include>
+<jsp:include page="../head.jsp"></jsp:include>
 
 <body>
 	<div class="container-fluid">

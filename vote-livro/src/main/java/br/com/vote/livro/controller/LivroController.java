@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -28,18 +27,18 @@ public class LivroController {
 //		return "livro/obrigado.jsp";
 //	}
 	
+	@RequestMapping("/")
+	public String index(Model model){
+		List<Livro> listarLivros = livroService.listarLivros();
+		model.addAttribute("livros", listarLivros);
+		return "livro/index.jsp";
+	}
+	
 	@RequestMapping
 	public void atualizaVoto(int livroKey){
 		Livro livro = livroService.obterLivro(livroKey);
 		livroService.atualizaVoto(livro);
 		votacaoService.atualizaVotacao(livroKey);
-	}
-	
-	@RequestMapping("/")
-	public String index(Model model){
-		List<Livro> listarLivros = livroService.listarLivros();
-		model.addAttribute("livros", listarLivros);
-		return "index.jsp";
 	}
 		
 }

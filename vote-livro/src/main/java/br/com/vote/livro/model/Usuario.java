@@ -1,5 +1,6 @@
 package br.com.vote.livro.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +11,8 @@ public class Usuario {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="usuario_key")
 	private int usuarioKey;
-	private String nome;
 	private String email;
 	private String senha;
 	
@@ -22,18 +23,16 @@ public class Usuario {
 	public Usuario() {
 	}
 	
+	public Usuario(String email, String senha){
+		this.email = email;
+		this.senha = senha;
+	}
+	
+	
 	public int getUsuarioKey() {
 		return usuarioKey;
 	}
-	
-	public String getNome() {
-		return nome;
-	}
-	
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -48,6 +47,10 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public void setUsuarioKey(int usuarioKey) {
+		this.usuarioKey = usuarioKey;
 	}
 
 }

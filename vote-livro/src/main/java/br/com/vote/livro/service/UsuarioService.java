@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.vote.livro.dao.UsuarioDao;
 import br.com.vote.livro.model.Usuario;
@@ -18,8 +19,9 @@ public class UsuarioService {
 		this.usuarioDao = usuarioDao;
 	}
 	
-	public Usuario salvar(Usuario usuario) {
-		return usuarioDao.salvar(usuario); 
+	@Transactional
+	public void salvar(Usuario usuario) {
+		usuarioDao.salvar(usuario); 
 	}
 
 	public List<Usuario> listarVotacao(Usuario usuario) {

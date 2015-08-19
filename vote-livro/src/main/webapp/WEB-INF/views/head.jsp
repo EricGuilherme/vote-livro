@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 	<title>Vote no Livro</title>
@@ -20,7 +19,7 @@
 		voto++;
 		computaVoto();
 		if (voto == 5) {
-			//abrir usuario.index.jsp
+			window.location.assign("http://127.0.0.1:8080/vote-livro/usuario/index.action")
 		}
 	}
 
@@ -35,15 +34,6 @@
 		});
 	}
 	
-	
-/* 	function computarVoto() {
-		$.get("http://127.0.0.1:8080/vote-livro/votacao/computarVoto.action")
-			.done(function(){
-				console.log("sucesso");
-			})
-			.fail(function(){
-				console.log("falhou");
-			});
-	} */
+
 </script>
 </head>
