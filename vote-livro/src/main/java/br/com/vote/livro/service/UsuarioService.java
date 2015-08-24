@@ -21,7 +21,8 @@ public class UsuarioService {
 	
 	@Transactional
 	public void salvar(Usuario usuario) {
-		usuarioDao.salvar(usuario); 
+		usuarioDao.salvar(usuario);
+		System.out.println("Usuario inserido com sucesso" + usuario);
 	}
 
 	public List<Usuario> listarVotacao(Usuario usuario) {

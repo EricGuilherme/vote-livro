@@ -10,21 +10,19 @@ import br.com.vote.livro.service.UsuarioService;
 @Controller
 @RequestMapping("usuario/*")
 public class UsuarioController {
-	
+
 	@Autowired
 	UsuarioService usuarioService;
-	
-	@RequestMapping
-	public String index(){
+
+	@RequestMapping("/")
+	public String index() {
 		return "usuario/usuario.index.jsp";
 	}
-	
-	@RequestMapping("salvar/")
-	public String salva(String email, String senha){
+
+	@RequestMapping("/salvar")
+	public String salvar(String email, String senha) {
 		Usuario usuario = new Usuario(email, senha);
-		usuario.setUsuarioKey(1);
-		usuarioService.salvar(usuario);		
+		usuarioService.salvar(usuario);
 		return "usuario/ranking.usuario.jsp";
 	}
-
 }

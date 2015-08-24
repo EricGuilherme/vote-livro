@@ -37,8 +37,7 @@ public class VotacaoService {
 	}
 
 	@Transactional
-	public void atualizaVotacao(int livroKey) {
-		Livro livro = livroDao.obterLivro(livroKey);
+	public void atualizaVotacao(Livro livro) {
 		Votacao votacao = obterVotacao(livro);
 		
 		int novoVoto = votacao.getVoto() + 1;
