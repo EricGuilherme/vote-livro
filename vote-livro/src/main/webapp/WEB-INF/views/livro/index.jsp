@@ -18,7 +18,7 @@
 					<div class="col-md-4">
 						<div class="page-header">
 							<h1>
-								The best books <small>of years</small>
+								<center>The best books <small>of years</small></center>
 							</h1>
 						</div>				
 					</div>
@@ -31,6 +31,13 @@
 			</div>
 		</div>
 	</div>
+		<div class="alert alert-dismissable alert-info">
+			<center> 
+				<h4> <strong>You has five choose in books only.</strong> <br />
+					 You did <small id="qtdVoto"> 0 </small> choices. 
+				</h4>
+			</center>
+		</div>
 </div>
 </body>
 </html>
