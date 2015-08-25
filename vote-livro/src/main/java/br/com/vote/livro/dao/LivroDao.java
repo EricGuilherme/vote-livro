@@ -27,8 +27,9 @@ public class LivroDao {
 	}
 
 	public List<Livro> listarLivros() {
-		String jpql = "select l from Livro l";
-		return manager.createQuery(jpql, Livro.class).getResultList();
+		String jpql = "select l from Livro l order by rand()";
+		int qtdResultado = 2;
+		return manager.createQuery(jpql, Livro.class).setMaxResults(qtdResultado).getResultList();
 	}
 
 	public Livro obterLivro(int livroKey) {
