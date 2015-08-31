@@ -31,9 +31,13 @@ public class LivroController {
 
 	@RequestMapping("/")
 	public String index(Model model){
-		List<Livro> listarLivros = livroService.listarLivros();
-		model.addAttribute("listarLivros", listarLivros);
+		model.addAttribute("listarLivros", listarLivros());
 		return "livro/index.jsp";
+	}
+	
+	public List<Livro> listarLivros(){
+		List<Livro> listarLivros = livroService.listarLivros();
+		return listarLivros;
 	}
 	
 	

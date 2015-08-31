@@ -8,7 +8,7 @@
 					<div class="col-md-4"></div>
 					<div class="col-md-4">
 						<h3 class="text-left text-primary">Login</h3>
-						<form action="salvar" class="form-horizontal" role="form">
+						<form action="salvar/" class="form-horizontal" role="form">
 							<div class="form-group">
 
 								<label for="inputEmail3" class="col-sm-2 control-label">

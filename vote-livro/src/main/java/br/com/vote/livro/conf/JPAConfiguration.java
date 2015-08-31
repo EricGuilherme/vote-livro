@@ -27,7 +27,7 @@ public class JPAConfiguration {
 		em.setJpaVendorAdapter(vendorAdapter);
 		em.setJpaProperties(additionalProperties());
 		
-		return em;
+		return em; 
 		
 	}
 	

@@ -22,12 +22,10 @@
 			$.post( "http://127.0.0.1:8080/vote-livro/livro/atualizaVoto/?livroKey=" + $livroKey, 
 					function(data){}
 			);	
-
 			if (voto == 5) {
 				alert("Finish select. See your choose, in make simple login")
 				window.location.assign("http://127.0.0.1:8080/vote-livro/usuario/")
 			}
-			
 		}
 		
 	</script>
