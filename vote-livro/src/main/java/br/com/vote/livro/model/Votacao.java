@@ -20,6 +20,11 @@ public class Votacao {
 	private Livro livro;
 	private int voto;
 	
+	public Votacao(String nome, int voto, int livroKey) {
+		this.livro.setNome(nome);
+		this.voto = voto;
+	}
+
 	public Votacao(int votacaoKey) {
 		this.votacaoKey = votacaoKey;
 	}

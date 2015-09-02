@@ -17,7 +17,8 @@ public class VotacaoDao {
 	private EntityManager manager;
 
 	public List<Votacao> listarVotacao() {
-		return null;
+		String sql = "select v from Votacao v order by v.voto desc";
+		return manager.createQuery(sql, Votacao.class).getResultList();
 	}
 
 	public void atualizaVotacao(Votacao votacao) {
@@ -27,10 +28,9 @@ public class VotacaoDao {
 	public Votacao obterVotacao(Livro livro) {
 		int livroKey = livro.getLivroKey();
 		String jpql = "select v from Votacao v where v.livro.livroKey = :livroKey";
-		List<Votacao> votacoes = manager.createQuery(jpql, Votacao.class)
-				.setParameter("livroKey", livroKey).getResultList();
+		return manager.createQuery(jpql, Votacao.class)
+				.setParameter("livroKey", livroKey).getSingleResult();
 		
-		return votacoes.get(0);		
 	}
 
 
