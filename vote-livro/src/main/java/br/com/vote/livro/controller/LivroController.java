@@ -40,14 +40,13 @@ public class LivroController {
 		return listarLivros;
 	}
 	
-	
 	@RequestMapping("atualizaVoto/") 
 	@ResponseBody
-	public String atualizaVoto(int livroKey){
+	public Livro atualizaVoto(int livroKey){
 		Livro livro = livroService.obterLivro(livroKey);
 		livroService.atualizaVoto(livro);
 		votacaoService.atualizaVotacao(livro);
-		return null;
+		return livro;
 	}	
 }
  

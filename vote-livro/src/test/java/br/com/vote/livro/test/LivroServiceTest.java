@@ -10,9 +10,13 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import br.com.six2six.fixturefactory.Fixture;
+import br.com.six2six.fixturefactory.loader.FixtureFactoryLoader;
 import br.com.vote.livro.dao.LivroDao;
 import br.com.vote.livro.model.Livro;
 import br.com.vote.livro.model.Usuario;
@@ -21,40 +25,37 @@ import br.com.vote.livro.service.LivroService;
 @RunWith(MockitoJUnitRunner.class)
 public class LivroServiceTest {
 	
-	private LivroService livroService;
+	@InjectMocks
+	private LivroService livroService = new LivroService();;
 	
 	@Mock
 	private LivroDao livroDao;
-	
+
+	private Livro livro;
+	private int livroKey = 123;
+
 	@Before
 	public void setUp(){
-		livroService = new LivroService();
-		livroService.setLivroDao(livroDao);
+		FixtureFactoryLoader.loadTemplates("br.com.vote.livro.ff.template");
 	}
 
 	@Test
 	public void deveListarLivros() {
-		Livro livro1 = new Livro(123);
-		Livro livro2 = new Livro(1234);
-		ArrayList<Livro> livros = new ArrayList<Livro>();
-		livros.add(livro1);
-		livros.add(livro2);	
-
-		doReturn(livros).when(livroDao).listarLivros();
+		dadoUmaListaDeLivrosValidos();
+		aoListar();
+		verificaSeOsLivrosForamListados();
 	}
 	
 	@Test
-	public void deveObterLivro(){
-		Livro livro = new Livro(123);
-		
-		doReturn(livro).when(livroDao).obterLivro(2);
-		
-		assertEquals(livro, livroDao.obterLivro(2));
+	public void obterLivro(){
+		dadoUmLivroValido();
+		pegaOLivro();
+		verificaLivroRetornado();
 	}
-
+	
 	@Test
 	public void deveVotarApenas5Vezes(){
-		Livro livro = new Livro(123);
+		dadoUmLivroValido();
 		for (int voto = 0; voto <= 5; voto++) {
 			livroService.atualizaVoto(livro);
 			livro.setVoto(voto);
@@ -64,7 +65,7 @@ public class LivroServiceTest {
 	
 	@Test
 	public void deveAtualizarVotoNoLivro(){
-		Livro livro = new Livro(123);
+		dadoUmLivroValido();
 		
 		doReturn(livro).when(livroDao).obterLivro(123);
 		
@@ -76,26 +77,12 @@ public class LivroServiceTest {
 	
 	@Test
 	public void deveAtualizarVotoEmLivrosDiferentesEQtdVotosIgualA5(){
-		Livro livro1 = new Livro(123);
-		Livro livro2 = new Livro(456);
-		
-		doReturn(livro1).when(livroDao).obterLivro(123);
-		doReturn(livro2).when(livroDao).obterLivro(456);
-		
-		livroService.atualizaVoto(livro1);
-		livroService.atualizaVoto(livro1);
-		livroService.atualizaVoto(livro2);
-		livroService.atualizaVoto(livro2);
-		livroService.atualizaVoto(livro2);
-		
-		assertEquals(livro1.getVoto(), 2);
-		assertEquals(livro2.getVoto(), 3);
-		assertEquals(5, livro1.getVoto() + livro2.getVoto());
+
 	}
 	
 	@Test
 	public void deveAtualizarUsuario(){
-		Livro livro = new Livro(123);
+		dadoUmLivroValido();
 		Usuario usuario = new Usuario(1);
 		livro.setUsuario(usuario);
 		
@@ -113,6 +100,32 @@ public class LivroServiceTest {
 		
 		verify(livroDao).listarLivrosPorUsuario(usuario);
 		
+	}
+	
+	public void verificaLivroRetornado() {
+		verify(livroDao).obterLivro(livroKey);
+	}
+
+	public void pegaOLivro() {
+		livroService.obterLivro(livroKey);
+	}
+	
+	public void verificaSeOsLivrosForamListados() {
+		verify(livroDao).listarLivros();
+	}
+
+	public void aoListar() {
+		livroService.listarLivros();
+	}
+
+	public void dadoUmaListaDeLivrosValidos() {
+		List<Livro> livros = Fixture.from(Livro.class).gimme(2, "valido");
+		doReturn(livros).when(livroDao).listarLivros();
+	}
+	
+	public void dadoUmLivroValido() {
+		Livro livro = Fixture.from(Livro.class).gimme("valido");
+		doReturn(livro).when(livroDao).obterLivro(livroKey);
 	}
 	
 }

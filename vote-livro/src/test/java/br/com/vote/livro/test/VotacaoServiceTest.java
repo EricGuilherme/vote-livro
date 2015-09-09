@@ -53,7 +53,7 @@ public class VotacaoServiceTest {
 		doReturn(livro).when(livroDao).obterLivro(123);
 		doReturn(votacao).when(votacaoDao).obterVotacao(livro);
 		
-		votacaoService.atualizaVotacao(123);
+		votacaoService.atualizaVotacao(livro);
 		
 		verify(livroDao).obterLivro(123);
 		verify(votacaoDao).obterVotacao(livro);

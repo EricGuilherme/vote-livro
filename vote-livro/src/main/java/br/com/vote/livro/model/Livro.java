@@ -17,7 +17,7 @@ public class Livro {
 	private String nome;
 	private String imagem;
 	@Transient
-	private int voto;
+	static int voto;
 	@Transient
 	private Usuario usuario;
 	

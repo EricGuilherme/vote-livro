@@ -18,10 +18,6 @@ public class LivroService {
 	@Autowired
 	LivroDao livroDao;
 
-	public void setLivroDao(LivroDao livroDao) {
-		this.livroDao = livroDao;
-	}
-	
 	public List<Livro> listarLivros() {
 		return livroDao.listarLivros();
 	}
